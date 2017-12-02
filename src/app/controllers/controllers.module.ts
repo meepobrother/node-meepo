@@ -1,10 +1,15 @@
-import {Module} from '@nestjs/common';
-import { PoisCtrl, CitiesCtrl } from './v1.0';
+import { Module } from '@nestjs/common';
+import {
+    PoisCtrl,
+    CitiesCtrl,
+    UserCtrl
+} from './v1.0';
 
 @Module({
     controllers: [
         PoisCtrl,
-        CitiesCtrl
+        CitiesCtrl,
+        UserCtrl
     ]
 })
-export class ControllersModule {}
+export class ControllersModule { }
