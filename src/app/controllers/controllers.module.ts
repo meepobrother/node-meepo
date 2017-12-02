@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+
 import {
     PoisCtrl,
     CitiesCtrl,
@@ -7,7 +8,6 @@ import {
 } from './v1.0';
 
 import { TablesModule } from '../tables';
-import { DatabaseModule } from '../database';
 
 @Module({
     controllers: [
@@ -17,8 +17,7 @@ import { DatabaseModule } from '../database';
         AddressCtrl
     ],
     modules: [
-        TablesModule,
-        DatabaseModule
+        TablesModule
     ]
 })
 export class ControllersModule { }

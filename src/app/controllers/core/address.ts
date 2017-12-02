@@ -1,6 +1,6 @@
 
 import { Base } from './base';
-import { TimeInterval } from 'rxjs';
+
 export class AddressBase extends Base{
     tencentkey = 'RLHBZ-WMPRP-Q3JDS-V2IQA-JNRFH-EJBHL';
 	tencentkey2 = 'RRXBZ-WC6KF-ZQSJT-N2QU7-T5QIT-6KF5X';

@@ -11,7 +11,7 @@ export const databaseProviders = [
             password: 'Yang1989',
             database: 'meepo',
             entities: [
-                __dirname + '/../**/*.entity{.ts,.js}',
+                __dirname + '/../tables/**/*.entry{.ts,.js}',
             ]
         }),
     },

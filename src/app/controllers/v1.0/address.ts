@@ -11,11 +11,15 @@ export class AddressCtrl extends AddressBase {
         super();
     }
 
+    @Get()
+    async index(){
+        return 'address';
+    }
+
     @Get(':id')
-    getAddressById(
+    async getAddressById(
         @Param('id') id
     ) {
-        console.log(this.address);
-        return 'city/count';
+        return this.address.getById(id);
     }
 }
