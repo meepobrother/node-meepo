@@ -18,9 +18,7 @@ export class AddressService {
         take: number = 10
     ) {
         return await this.repository.find({
-            where: {
-                uniacid: 1
-            },
+            where: where,
             skip: skip,
             take: take
         })

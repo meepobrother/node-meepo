@@ -12,8 +12,13 @@ export class AddressCtrl extends AddressBase {
     }
 
     @Get()
-    async index(){
-        return 'address';
+    async index( 
+        @Query('openid') openid
+    ){
+        let address = await this.address.search({
+            uniacid: 15
+        });
+        return address;
     }
 
     @Get(':id')
