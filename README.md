@@ -2,14 +2,12 @@
 
 ```
 nest g module modulename
-nest g  controller
+nest g controller controller
 nest g component component 
 nest g pipe pipe
 nest g gateway gateway
 `
-
 - formidable 表单处理
-
  [❌] 获取城市列表
  [❤️] 取所选城市信息
  [❌] 搜索地址
@@ -70,7 +68,3 @@ nest g gateway gateway
  [❌] 获取用户分布信息
  [❌] 获取某天管理员注册量
  
- 
- 
- 
-
