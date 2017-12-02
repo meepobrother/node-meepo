@@ -7,6 +7,7 @@ nest g component component
 nest g pipe pipe
 nest g gateway gateway
 `
+
 - formidable 表单处理
  [❌] 获取城市列表
  [❤️] 取所选城市信息
