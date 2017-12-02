@@ -10,6 +10,9 @@
         "watch": "tsc -w",
         "serve": "nodemon -e ts --watch src --exec \"npm run build && npm run start\" "
     },
+    "bin": {
+        "meepo": "tool.js"
+    },
     "dependencies": {
         "@nestjs/common": "^4.0.2",
         "@nestjs/core": "^4.0.2",

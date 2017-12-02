@@ -2,10 +2,12 @@
 
 var fs = require('fs');
 var mkdirp = require('mkdirp');
+var path = process.cwd();
+var argv = require("yargs").argv;
 
 
-let _m = 'member';
-let dir = `${__dirname}/src/app/tables/${_m}`;
+let _m = argv.m;
+let dir = `${path}/src/app/tables/${_m}`;
 
 mkdirp(dir, function(err) {
     if (err) {
