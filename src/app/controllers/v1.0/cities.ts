@@ -11,17 +11,17 @@ export class CitiesCtrl extends AddressBase {
     // 获取城市列表 v1/cities
     // guess：定位城市， hot：热门城市， group：所有城市
     @Get()
-    async getCity( 
+    async getCity(
         @Query('type') type,
         @Request() req
-    ) {
+        ) {
         let cityinfo;
         try {
-            switch (type) { 
+            switch (type) {
                 case 'guess':
                     const city = await this.getCityName(req);
                     break;
-                case 'hot': 
+                case 'hot':
                     break;
                 case 'group':
                     break;
