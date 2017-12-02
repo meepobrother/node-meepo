@@ -15,6 +15,6 @@ nest g gateway gateway
 
 - [*]v2
 
- [☹] 
- [☺︎]
+ [❌] 
+ [❤️]
 
