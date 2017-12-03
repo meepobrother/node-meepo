@@ -1,8 +1,8 @@
 
 import { Base } from './base';
 
-export class AddressBase extends Base{
-    tencentkey = 'RLHBZ-WMPRP-Q3JDS-V2IQA-JNRFH-EJBHL';
+export class AddressBase extends Base {
+	tencentkey = 'RLHBZ-WMPRP-Q3JDS-V2IQA-JNRFH-EJBHL';
 	tencentkey2 = 'RRXBZ-WC6KF-ZQSJT-N2QU7-T5QIT-6KF5X';
 	baidukey = 'fjke3YUipM9N64GdOIh1DNeK2APO2WcT';
 	baidukey2 = 'fjke3YUipM9N64GdOIh1DNeK2APO2WcT';
@@ -16,7 +16,7 @@ export class AddressBase extends Base{
 		try {
 			cityInfo = await this.guessPosition(req);
 		} catch (err) {
-			return
+			throw new Error(err);
 		}
 		return cityInfo.city
 	}
@@ -53,8 +53,7 @@ export class AddressBase extends Base{
 					cityInfo.city = cityInfo.city.replace(/市$/, '');
 					resolve(cityInfo)
 				} else {
-					console.log('定位失败', result)
-					reject('定位失败');
+					reject(new Error('定位失败'));
 				}
 			} catch (err) {
 				reject(err);

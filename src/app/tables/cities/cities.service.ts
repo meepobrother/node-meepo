@@ -1,27 +1,21 @@
 
 import { Component, Inject } from '@nestjs/common';
-import { CitiesEntry, cities, hotCities } from './cities.entry';
+import { CitiesEntry, cities } from './cities.entry';
 import { Repository } from 'typeorm';
 import { tabless } from '../../config/tables';
 
 @Component()
 export class CitiesService {
-    constructor() { }
-
-    getHots() {
-        return hotCities;
-    }
-
-    getGroup() {
-        return cities;
-    }
-
-    getOneById(id) {
+    constructor(
+        @Inject('CitiesRepositoryToken') private readonly repository: Repository<CitiesEntry>
+    ) { }
+    async getOneById(id) {
         let item;
-        for(let key in cities){
-            let citys = cities[key];
-            citys.map(res=>{
-                if(res.id == id){
+        let list = await this.getData();
+        for (let key in list) {
+            let citys = list[key];
+            citys.map(res => {
+                if (res.id == id) {
                     item = res;
                 }
             })
@@ -29,36 +23,35 @@ export class CitiesService {
         return item;
     }
 
-    // async getAll() {
-    //     return await this.repository.find({
-    //         cache: false,
-    //         order: {
-    //             "sort": "ASC"
-    //         }
-    //     });
-    // }
+    async initData() {
+        return await this.repository.insert({ data: JSON.stringify(cities) });
+    }
 
-    // add() {
-    //     this.repository.create();
-    // }
+    async getData() {
+        let one = await this.repository.findOne();
+        let data = JSON.parse(one.data);
+        delete(data['hotCities']);
+        return data;
+    }
 
-    // async installData() {
+    async getHots(){
+        let one = await this.repository.findOne();
+        let data = JSON.parse(one.data);
+        return data['hotCities'];
+    }
 
-    //     for (let key in cities) {
-    //         let cityss = cities[key];
-    //         let list = [];
-    //         cityss.map(city => {
-    //             city['is_hot'] = false;
-    //             city['uc_first'] = city.abbr.substr(0, 1);
-    //             list.push(city);
-    //         });
-    //         await this.repository.save(list);
-    //     }
 
-    //     hotCities.map(city => {
-    //         city['is_hot'] = true;
-    //         city['uc_first'] = city.abbr.substr(0, 1);
-    //     });
-    //     await this.repository.save(hotCities);
-    // }
+    async cityGuess(name){
+        // 我的城市
+        let result;
+        let citys = await this.getData();
+        for(let key in citys){
+            citys[key].map(city=>{
+                if(city.pinyin == name){
+                    result = city;
+                }
+            })
+        }
+        return result;
+    }
 }

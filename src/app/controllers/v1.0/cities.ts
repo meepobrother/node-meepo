@@ -2,6 +2,7 @@
 import { Controller, Get, Query, Param, Request, Response } from '@nestjs/common';
 import { AddressBase } from '../core';
 import { CitiesService } from '../../tables/cities';
+import { Util } from '../core/util';
 @Controller('v1/cities')
 export class CitiesCtrl extends AddressBase {
 
@@ -13,11 +14,26 @@ export class CitiesCtrl extends AddressBase {
     // 获取城市列表 v1/cities
     // guess：定位城市， hot：热门城市， group：所有城市
     @Get()
-    getCity( 
-        @Query('type') type
-    ) {
-        let cityinfo = this.service.getGroup();
-        return cityinfo;
+    async getCity(
+        @Query('type') type,
+        @Request() req
+        ) {
+        if (type == 'hot') {
+            return this.service.getHots();
+        } else if (type == 'group') {
+            return this.service.getData();
+        } else {
+            try { 
+                const city = await this.getCityName(req);
+                const pinyin = Util.toPinyin(city);
+                return this.service.cityGuess(pinyin);
+            } catch (e) {
+                return {
+                    err: '定位失败',
+                    code: 0
+                };
+            }
+        }
     }
 
     // 获取所选城市信息 城市id
