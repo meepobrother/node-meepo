@@ -1,6 +1,5 @@
 import { Module, NestModule, MiddlewaresConsumer } from '@nestjs/common';
 import { ControllersModule } from './controllers';
-import { OauthMiddleware } from './oauth.middleware';
 
 @Module({
   modules: [
@@ -10,10 +9,5 @@ import { OauthMiddleware } from './oauth.middleware';
   controllers: [],
   exports: []
 })
-export class ApplicationModule implements NestModule {
-  configure(consumer: MiddlewaresConsumer): void {
-    consumer.apply(OauthMiddleware).forRoutes({
-      path: '/v1', method: 'all'
-    });
-  }
+export class ApplicationModule  {
 }

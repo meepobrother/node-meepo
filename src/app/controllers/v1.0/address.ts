@@ -13,10 +13,8 @@ export class AddressCtrl extends AddressBase {
 
     @Get()
     async index( 
-        @Query('openid') openid,
-        @Response() res
+        @Query('openid') openid
     ){
-        res.header("Access-Control-Allow-Origin", "*");
         let address = await this.address.search({
             uniacid: 15
         });
