@@ -1,11 +1,13 @@
 
-import { Controller, Get, Query, Param, Request } from '@nestjs/common';
+import { Controller, Get, Query, Param, Request, Response } from '@nestjs/common';
 import { AddressBase } from '../core';
-
+import { CitiesService } from '../../tables/cities';
 @Controller('v1/cities')
 export class CitiesCtrl extends AddressBase {
 
-    constructor() {
+    constructor(
+        public service: CitiesService
+    ) {
         super();
     }
     // 获取城市列表 v1/cities
@@ -13,17 +15,24 @@ export class CitiesCtrl extends AddressBase {
     @Get()
     async getCity( 
         @Query('type') type,
-        @Request() req
+        @Request() req,
+        @Response() res
     ) {
-        let cityinfo;
+        res.header("Access-Control-Allow-Origin", "*");
+        // this.service.installData();
+        let cityinfo = await this.service.getGroup();
         try {
             switch (type) { 
                 case 'guess':
+                    //定位城市
                     const city = await this.getCityName(req);
+
                     break;
                 case 'hot': 
+                    cityinfo = await this.service.getHots();
                     break;
                 case 'group':
+                    cityinfo = await this.service.getGroup();
                     break;
                 default:
                     break;

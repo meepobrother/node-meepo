@@ -9,6 +9,7 @@ import { ReciveModule } from './recive/recive.module';
 import { CategoryModule } from './category/category.module';
 import { TopicsModule } from './topics/topics.module';
 import { ShopexpressModule } from './shopExpress/shopExpress.module';
+import { CitiesModule } from './cities/cities.module';
 
 @Module({
     modules: [
@@ -16,13 +17,15 @@ import { ShopexpressModule } from './shopExpress/shopExpress.module';
         AddressModule,
         MemberModule,
         TasksModule,
-        ShopexpressModule
+        ShopexpressModule,
+        CitiesModule
     ],
     components: [],
     exports: [
         AddressModule,
         MemberModule,
-        TasksModule
+        TasksModule,
+        CitiesModule
     ]
 })
 export class TablesModule {}

@@ -1,5 +1,5 @@
 
-import { Controller, Get, Query, Param, Request } from '@nestjs/common';
+import { Controller, Get, Query, Param, Request, Response } from '@nestjs/common';
 import { AddressBase } from '../core';
 import { AddressService } from '../../tables/address';
 @Controller('v1/address')
@@ -13,8 +13,10 @@ export class AddressCtrl extends AddressBase {
 
     @Get()
     async index( 
-        @Query('openid') openid
+        @Query('openid') openid,
+        @Response() res
     ){
+        res.header("Access-Control-Allow-Origin", "*");
         let address = await this.address.search({
             uniacid: 15
         });
@@ -27,4 +29,6 @@ export class AddressCtrl extends AddressBase {
     ) {
         return this.address.getById(id);
     }
+
+    
 }

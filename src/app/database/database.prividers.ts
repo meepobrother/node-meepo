@@ -5,7 +5,7 @@ export const databaseProviders = [
         provide: 'DbConnectionToken',
         useFactory: async () => await createConnection({
             type: 'mysql',
-            host: '121.42.158.224',
+            host: 'localhost',
             port: 3306,
             username: 'root',
             password: 'yang1989.',
