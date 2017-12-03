@@ -2,26 +2,35 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { tabless } from '../../config/tables';
 
-@Entity(tabless['shopExpress'])
-export class ShopexpressEntry {
+@Entity(tabless['agent'])
+export class AgentEntry {
     @PrimaryGeneratedColumn()
     id: number;
+
+    @Column()
+    url: string;
 
     @Column()
     uniacid: number;
 
     @Column()
-    express_name: string;
+    avatar: string;
 
     @Column()
-    displayorder: number;
+    name: string;
+    
+    @Column()
+    realname: string;
 
     @Column()
-    express_price: string;
+    create_time: number;
 
     @Column()
-    express_area: string;
+    area_code: string;
 
     @Column()
-    express_url: string;
+    area_id: number;
+
+    @Column()
+    mobile: string;
 }

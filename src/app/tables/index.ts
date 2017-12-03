@@ -1,3 +1,3 @@
 export { TablesModule } from './tables.module';
-export * from './address';
-export * from './member';
+export * from './cities';
+export * from './pushMsg';

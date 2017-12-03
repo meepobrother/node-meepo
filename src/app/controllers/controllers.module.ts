@@ -3,8 +3,8 @@ import { Module } from '@nestjs/common';
 import {
     PoisCtrl,
     CitiesCtrl,
-    UserCtrl,
-    AddressCtrl
+    MenuCtrl,
+    AgentCtrl
 } from './v1.0';
 
 import { TablesModule } from '../tables';
@@ -13,8 +13,8 @@ import { TablesModule } from '../tables';
     controllers: [
         PoisCtrl,
         CitiesCtrl,
-        UserCtrl,
-        AddressCtrl
+        MenuCtrl,
+        AgentCtrl
     ],
     modules: [
         TablesModule

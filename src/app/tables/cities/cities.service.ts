@@ -24,6 +24,11 @@ export class CitiesService {
     }
 
     async initData() {
+        for(let key in cities){
+            cities[key].map(res=>{
+                res['hasAgent'] = false;
+            });
+        }
         return await this.repository.insert({ data: JSON.stringify(cities) });
     }
 

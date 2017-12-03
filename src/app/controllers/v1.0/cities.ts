@@ -22,6 +22,8 @@ export class CitiesCtrl extends AddressBase {
             return this.service.getHots();
         } else if (type == 'group') {
             return this.service.getData();
+        } else if(type == '___init'){
+            return this.service.initData();
         } else {
             try { 
                 const city = await this.getCityName(req);

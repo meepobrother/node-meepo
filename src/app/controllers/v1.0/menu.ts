@@ -12,6 +12,5 @@ export class MenuCtrl extends AddressBase {
     getMenu() {
         return 'menu';
     }
-
     
 }

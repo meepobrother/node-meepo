@@ -11,6 +11,8 @@ nest g gateway gateway
 - 8003 api
 - 8004 socket
 
+// 社交媒体
+
 - formidable 表单处理
  [❌] 获取城市列表
  [❤️] 取所选城市信息
