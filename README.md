@@ -2,7 +2,7 @@
 
 - 数据库：  mongodb,mysql等
 - 编程语言： javascript, php, sql, html, css, scss, less
-- 框架： 微擎、angular、vue、react、typeorm, nativescript, ionic
+- 框架： 微擎、angular、vue、react、typeorm, nativescript, ionic, nestjs, express, socket.io
 - 工具： gulp, wepackage
 
 ```ts
