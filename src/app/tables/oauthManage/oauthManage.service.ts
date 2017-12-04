@@ -17,7 +17,13 @@ export class OauthmanageService {
         });
     }
 
-    async getMy(skip, take, url){
+    async updateOneUrl(url, id) {
+        let photoToUpdate = await this.repository.findOneById(id);
+        photoToUpdate.url = url;
+        return await this.repository.save(photoToUpdate);
+    }
+
+    async getMy(skip, take, url) {
         return await this.repository.find({
             where: {
                 url: url

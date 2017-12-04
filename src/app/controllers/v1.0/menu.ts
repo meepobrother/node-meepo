@@ -144,7 +144,7 @@ let menu = {
             "translate": "meepo-skills-manage",
             "group": true,
             "icon": "fa fa-star",
-            "acl": "meepo-skill",
+            "acl": "imeepos_runner",
             "children": [{
                 "text": "所有技能",
                 "translate": "meepo-skills-all",
@@ -159,7 +159,7 @@ let menu = {
             "translate": "meepo-topics-manage",
             "group": true,
             "icon": "anticon anticon-message",
-            "acl": "imeepos_bbs",
+            "acl": "meepo_bbs",
             "children": [{
                 "text": "所有帖子",
                 "translate": "meepo-topics-all",
@@ -174,7 +174,7 @@ let menu = {
             "translate": "meepo-actives-manage",
             "group": true,
             "icon": "anticon anticon-gift",
-            "acl": "imeepos-active",
+            "acl": "meepo_bar_free",
             "children": [{
                 "text": "所有活动",
                 "translate": "meepo-actives-all",
@@ -189,7 +189,7 @@ let menu = {
             "translate": "meepo-lessons-manage",
             "group": true,
             "icon": "anticon anticon-calendar",
-            "acl": "imeepos_coach_admin",
+            "acl": "imeepos_coach",
             "children": [{
                 "text": "所有课程",
                 "translate": "meepo-lessons-all",
@@ -204,7 +204,7 @@ let menu = {
             "translate": "meepo-oauths-manage",
             "group": true,
             "icon": "anticon anticon-calendar",
-            "acl": "imeepos_oauth",
+            "acl": "imeepos_runner_admin",
             "children": [{
                 "text": "我的模块",
                 "translate": "meepo-oauths-all",
@@ -233,21 +233,21 @@ let menu = {
             "translate": "shortcut",
             "icon": "icon-rocket",
             "shortcut_root": true,
-            "acl": "imeepos_oauth",
+            "acl": "developer",
             "children": []
         }, {
             "text": "小部件",
             "translate": "widgets",
             "link": "/widgets",
             "icon": "icon-grid",
-            "acl": "imeepos_oauth",
+            "acl": "developer",
             "badge": 2
         }]
     }, {
         "text": "组件",
         "translate": "component",
         "group": true,
-        "acl": "imeepos_oauth",
+        "acl": "developer",
         "children": [{
             "text": "基础元素",
             "translate": "elements",
@@ -314,7 +314,7 @@ let menu = {
             "translate": "forms",
             "link": "/forms",
             "icon": "icon-note",
-            "acl": "imeepos_oauth",
+            "acl": "developer",
             "children": [{
                 "text": "标准",
                 "link": "/forms/standard",
@@ -342,7 +342,7 @@ let menu = {
             "translate": "charts",
             "link": "/charts",
             "icon": "icon-graph",
-            "acl": "imeepos_oauth",
+            "acl": "developer",
             "children": [{
                 "text": "G2",
                 "link": "/charts/g2"
@@ -352,7 +352,7 @@ let menu = {
             "translate": "tables",
             "link": "/tables",
             "icon": "icon-grid",
-            "acl": "imeepos_oauth",
+            "acl": "developer",
             "children": [{
                 "text": "标准",
                 "link": "/tables/standard",
@@ -367,7 +367,7 @@ let menu = {
             "translate": "maps",
             "link": "/maps",
             "icon": "icon-map",
-            "acl": "imeepos_oauth",
+            "acl": "developer",
             "children": [{
                 "text": "QQ",
                 "link": "/maps/qq",
@@ -382,7 +382,7 @@ let menu = {
         "text": "Pro",
         "translate": "pro",
         "group": true,
-        "acl": "imeepos_oauth",
+        "acl": "developer",
         "children": [{
             "text": "Form Page",
             "translate": "form",
@@ -493,7 +493,7 @@ let menu = {
         "text": "More",
         "translate": "more",
         "group": true,
-        "acl": "imeepos_oauth",
+        "acl": "developer",
         "children": [{
             "text": "Common Logics",
             "translate": "logics",
