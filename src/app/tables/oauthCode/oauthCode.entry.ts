@@ -2,38 +2,28 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { tabless } from '../../config/tables';
 
-@Entity(tabless['agent'])
-export class AgentEntry {
+@Entity(tabless['oauthCode'])
+export class OauthcodeEntry {
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column()
-    url: string;
-
     @Column()
     uniacid: number;
-
-    @Column()
-    avatar: string;
-
-    @Column()
-    name: string;
-    
-    @Column()
-    realname: string;
-
     @Column()
     create_time: number;
-
+    @Column()
+    code: string;
+    @Column()
+    start_time: number;
     @Column()
     end_time: number;
-
     @Column()
-    area_code: string;
-
+    moduleId: number;
     @Column()
-    area_id: number;
-
+    status: boolean;
     @Column()
-    mobile: string;
+    userId: number;
+    @Column()
+    manageId: number;
+    @Column()
+    update_time: number;
 }

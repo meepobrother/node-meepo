@@ -28,4 +28,14 @@ export class AgentService {
             }
         });
     }
+
+    async getList(skip, take){
+        // hask 
+        return await this.repository.find({
+            skip: skip,
+            take: take
+        });
+    }
 }
+
+

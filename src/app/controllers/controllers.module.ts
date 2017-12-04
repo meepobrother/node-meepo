@@ -4,7 +4,9 @@ import {
     PoisCtrl,
     CitiesCtrl,
     MenuCtrl,
-    AgentCtrl
+    AgentCtrl,
+    AgentsCtrl,
+    CloudCtrl
 } from './v1.0';
 
 import { TablesModule } from '../tables';
@@ -14,7 +16,9 @@ import { TablesModule } from '../tables';
         PoisCtrl,
         CitiesCtrl,
         MenuCtrl,
-        AgentCtrl
+        AgentCtrl,
+        AgentsCtrl,
+        CloudCtrl
     ],
     modules: [
         TablesModule

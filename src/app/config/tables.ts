@@ -2,7 +2,11 @@ export const tabless = {
     'address': 'ims_imeepos_runner3_address',
     'cities': 'ims_imeepos_runner4_cities',
     'push_msg': 'ims_imeepos_runner4_push_msg', // 推送记录
-    'agent': 'ims_imeepos_runner4_agent'
+    'agent': 'ims_imeepos_runner4_agent',
+    'oauthManage': 'ims_imeepos_oauth2_manage',
+    'oauthCode': 'ims_imeepos_oauth2_code',
+    'oauthModule': 'ims_imeepos_oauth2_module',
+    'oauthTable': 'ims_imeepos_oauth2_tables'
 }
 
 // 用户发布任务 - 发布成功后 - 添加推送任务 - 推送服务器通知客户服务器 - 推送消息给用户
