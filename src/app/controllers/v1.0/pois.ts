@@ -1,11 +1,14 @@
 import { Controller, Get, Query, Param, Request } from '@nestjs/common';
 import * as fetch from 'node-fetch';
 import * as pinyin from 'pinyin';
+import { CitiesService } from '../../tables/cities';
 
 import { AddressBase } from '../core';
 @Controller('v1/pois')
 export class PoisCtrl extends AddressBase {
-	constructor() {
+	constructor(
+		public service: CitiesService
+	) {
 		super();
 	}
 	/**
@@ -19,17 +22,31 @@ export class PoisCtrl extends AddressBase {
 		@Query('keyword') keyword,
 		@Query('type') type,
 		@Request() req
-		) {
+	) {
 		type = type || 'search';
+		let result: any;
 		if (!city_id) {
 			let city_name = await this.getCityName(req);
-			let result = this.searchPlace(keyword, city_name, type);
-			return result;
+			result = await this.searchPlace(keyword, city_name, type);
 		} else {
-			return {
-				msg: 'city id is not finish'
-			}
+			let city = await this.service.getOneById(city_id);
+			result = await this.searchPlace(keyword, city['name'], type);
 		}
+
+		const cityList = [];
+		if(result['data']){
+			result.data.map((item, index) => {
+				cityList.push({
+					name: item.title,
+					address: item.address,
+					latitude: item.location.lat,
+					longitude: item.location.lng,
+					geohash: item.location.lat + ',' + item.location.lng,
+				})
+			});
+		}
+		
+		return cityList;
 	}
 
 	// 根据经纬度详细定位 v1/pois/:geohash

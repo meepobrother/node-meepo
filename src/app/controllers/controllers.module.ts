@@ -6,9 +6,26 @@ import {
     MenuCtrl,
     AgentCtrl,
     AgentsCtrl,
-    CloudCtrl
+    CloudCtrl,
+    UserCtrl
 } from './v1.0';
 
+import {
+    V2PoisCtrl,
+    V2IndexEntryCtrl,
+    V2RatingsCtrl,
+    V2OrderCtrl
+} from './v2.0';
+
+import {
+    RestaurantsCtrl,
+    RestaurantCtrl,
+    V2MenuCtrl    
+} from './shopping';
+
+import {
+    V4RestaurantsCtrl
+} from './v4.0';
 import { TablesModule } from '../tables';
 
 @Module({
@@ -18,7 +35,16 @@ import { TablesModule } from '../tables';
         MenuCtrl,
         AgentCtrl,
         AgentsCtrl,
-        CloudCtrl
+        CloudCtrl,
+        UserCtrl,
+        V2PoisCtrl,
+        V2IndexEntryCtrl,
+        RestaurantsCtrl,
+        RestaurantCtrl,
+        V2MenuCtrl,
+        V2RatingsCtrl,
+        V4RestaurantsCtrl,
+        V2OrderCtrl
     ],
     modules: [
         TablesModule
